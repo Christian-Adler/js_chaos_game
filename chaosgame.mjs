@@ -1,4 +1,3 @@
-import {Vector} from "./vector.mjs";
 import {getRandomIntInclusive, lerpVec, rad2deg} from "./utils.mjs";
 
 class ChaosGame {
@@ -9,7 +8,7 @@ class ChaosGame {
     this.worldWidth = worldWidth;
     this.worldHeight = worldHeight;
 
-    this.currentVec = new Vector(this.worldWidth * Math.random(), this.worldHeight * Math.random(), this.worldWidth * Math.random());
+    this.currentVec = this.seedPoints[Math.floor(Math.random() * this.seedPoints.length)];
   }
 
   step(ctx) {
