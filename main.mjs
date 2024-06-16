@@ -29,6 +29,7 @@ function createChaosGame() {
       [new Vector(worldWidth2, 10),
         new Vector(worldWidth2 - worldHeight2, worldHeight - 10),
         new Vector(worldWidth2 + worldHeight2, worldHeight - 10)],
+      0.5,
       worldWidth, worldHeight);
 }
 
