@@ -10,6 +10,18 @@ class Vector {
     ctx.fill();
   }
 
+  mult(val) {
+    this.x *= val;
+    this.y *= val;
+    return this;
+  }
+
+  add(xVal, yVal) {
+    this.x += xVal;
+    this.y += yVal;
+    return this;
+  }
+
   clone() {
     return new Vector(this.x, this.y);
   }
