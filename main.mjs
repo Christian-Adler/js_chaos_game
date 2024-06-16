@@ -24,12 +24,43 @@ const updateWorldSettings = () => {
 
 updateWorldSettings();
 
+let n = 3;
+let stepPercentage = 0.5;
+let allowSamePointInARow = true;
+
+if (false) {
+  n = 5;
+  allowSamePointInARow = false;
+} else if (false) {
+  n = 15;
+  stepPercentage = 0.8;
+  // allowSamePointInARow = false;
+} else if (false) {
+  n = 6;
+  stepPercentage = 0.667;
+  // allowSamePointInARow = false;
+} else if (true) {
+  n = 4;
+  stepPercentage = 0.4;
+  allowSamePointInARow = false;
+}
+
 function createChaosGame() {
+  // triangle
+  let seedPoints = [new Vector(worldWidth2, 10),
+    new Vector(worldWidth2 - worldHeight2, worldHeight - 10),
+    new Vector(worldWidth2 + worldHeight2, worldHeight - 10)];
+  const radius = Math.min(worldWidth2, worldHeight2);
+  seedPoints = [];
+  for (let i = 0; i < n; i++) {
+    const angle = i * Math.PI * 2 / n
+    seedPoints.push(Vector.fromAngle(angle).mult(radius).add(worldWidth2, worldHeight2));
+  }
+
+
   return new ChaosGame(
-      [new Vector(worldWidth2, 10),
-        new Vector(worldWidth2 - worldHeight2, worldHeight - 10),
-        new Vector(worldWidth2 + worldHeight2, worldHeight - 10)],
-      0.5,
+      seedPoints,
+      stepPercentage, allowSamePointInARow,
       worldWidth, worldHeight);
 }
 

@@ -6,7 +6,7 @@ class Vector {
 
   draw(ctx) {
     ctx.beginPath();
-    ctx.arc(this.x, this.y, 1, 0, Math.PI * 2);
+    ctx.arc(this.x, this.y, 0.5, 0, Math.PI * 2);
     ctx.fill();
   }
 
